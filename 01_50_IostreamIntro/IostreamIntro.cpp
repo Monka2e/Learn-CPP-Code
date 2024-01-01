@@ -6,6 +6,14 @@ int main() {
     int x{};
     std::cin >> x;
 
-    std::cout << "Entered: " << x << '\n';
+    std::cout << "You entered: " << x << '\n';
+
+    std::cout << "Enter two numbers seperated by a space: ";
+
+    int a{};
+    int b{};
+    std::cin >> a >> b;
+
+    std::cout << "You entered " << a << " and " << b << '\n';
     return 0;
 }
