@@ -1,7 +1,7 @@
 #include <iostream>
 
 int main() {
-    int answer = 42;
+    [[maybe_unused]] int answer {42};
 
     return 0;
 }
