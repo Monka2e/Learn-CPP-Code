@@ -5,5 +5,6 @@ int main() {
 
     int x {6};
     std::cout << (x = 5) << '\n';
+    std::cout << x << '\n';
     return 0;
 }
