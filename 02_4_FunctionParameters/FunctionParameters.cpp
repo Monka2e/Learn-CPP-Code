@@ -5,7 +5,10 @@ int doubleNumber(int val) {
 }
 
 int main() {
-    std::cout << doubleNumber(2) << '\n';
+    int x{};
+    std::cin >> x;
+
+    std::cout << doubleNumber(x) << '\n';
 
     return 0;
 }
