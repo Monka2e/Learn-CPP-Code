@@ -6,4 +6,4 @@ Each individual project folder is named according to which chapter it comes from
 
 chapter_subchapter_project name
 
-XX_XX_Project
+XX_X_Project
