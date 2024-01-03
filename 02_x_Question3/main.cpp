@@ -1,5 +1,4 @@
-int readNumber();
-void writeAnswer(int value);
+#include "io.h"
 
 int main() {
     writeAnswer(readNumber() + readNumber());
