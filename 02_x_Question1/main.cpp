@@ -6,11 +6,11 @@ int readNumber() {
     return x;
 }
 
-void writeAnswer() {
-
+void writeAnswer(int value) {
+    std::cout << "The answer is " << value << '\n';
 }
 
 int main() {
-    std::cout << readNumber() << '\n';
+    writeAnswer(readNumber() + readNumber());
     return 0;
 }
