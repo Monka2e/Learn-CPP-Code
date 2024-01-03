@@ -1,14 +1,16 @@
 #include <iostream>
 
 int readNumber() {
-    return 0;
+    int x{};
+    std::cin >> x;
+    return x;
 }
 
 void writeAnswer() {
-    return 0;
+
 }
 
 int main() {
-
+    std::cout << readNumber() << '\n';
     return 0;
 }
