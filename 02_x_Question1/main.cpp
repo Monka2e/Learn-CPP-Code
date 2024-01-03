@@ -4,7 +4,7 @@ int readNumber() {
     return 0;
 }
 
-int writeAnswer() {
+void writeAnswer() {
     return 0;
 }
 
