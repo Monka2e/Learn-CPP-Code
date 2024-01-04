@@ -16,11 +16,12 @@ std::cerr << "called getInput()\n";
 
 void printValuePlusFive(int x) {
 std::cerr << "called printValuePlusFive()\n";
-    std::cout << "Your value plus 5 is " << addFive(x) << '\n';
+    x = addFive(x);
+    std::cout << "Your value plus 5 is " << x << '\n';
 }
 
 int main() {
 std::cerr << "called Main()\n";
     int x {getInput()};
-    printValuePlusFive;
+    printValuePlusFive(x);
 }
