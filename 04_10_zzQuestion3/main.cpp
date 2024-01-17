@@ -7,10 +7,7 @@ bool isAllowedToTakeFunRide()
   double height{};
   std::cin >> height;
 
-  if (height >= 140.0)
-    return true;
-  else
-    return false;
+  return height >= 140.0;
 }
 
 int main()
