@@ -21,4 +21,6 @@ int main() {
     const int y {x};
     const int p {u};
     const int n {five()};
+
+    return 0;
 }
