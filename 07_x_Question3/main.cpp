@@ -6,6 +6,12 @@ The following program should run and produce the output noted in comments:
 
 #include <iostream>
 
+int accumulate(int add) {
+    static int accumulated {0};
+    accumulated += add;
+    return accumulated;
+}
+
 int main()
 {
     std::cout << accumulate(4) << '\n'; // prints 4
