@@ -7,9 +7,10 @@ int main()
 	std::cin >> num;
 
 
-	if (num < 0)
+	if (num < 0) {
 		std::cout << "Negative number entered.  Making positive.\n";
 		num = -num;
+    }
 
 	std::cout << "You entered: " << num;
 
