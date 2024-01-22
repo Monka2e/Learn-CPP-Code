@@ -13,7 +13,9 @@ int main() {
 
     myArticleFlags |= option_viewed;
     if (myArticleFlags & option_deleted)
-        std::cout << "article deleted" << '\n';
+        std::cout << "deleted" << '\n';
+
+    myArticleFlags &= static_cast<std::uint8_t>(~option_favorited);
 
     std::cout << std::bitset<8>{ myArticleFlags } << '\n';
 
