@@ -21,9 +21,11 @@ double calculateHeight(double initialHeight, int seconds)
         return heightNow;
 }
 
-void calculateAndPrintHeight(double initialHeight, int time)
+bool calculateAndPrintHeight(double initialHeight, int time)
 {
-    std::cout << "At " << time << " seconds, the ball is at height: " << calculateHeight(initialHeight, time) << '\n';
+    double currentHeight {calculateHeight(initialHeight, time)};
+    std::cout << "At " << time << " seconds, the ball is at height: " << currentHeight << '\n';
+    return currentHeight == 0;
 }
 
 int main()
@@ -32,12 +34,10 @@ int main()
     double initialHeight {};
     std::cin >> initialHeight;
 
-    calculateAndPrintHeight(initialHeight, 0);
-    calculateAndPrintHeight(initialHeight, 1);
-    calculateAndPrintHeight(initialHeight, 2);
-    calculateAndPrintHeight(initialHeight, 3);
-    calculateAndPrintHeight(initialHeight, 4);
-    calculateAndPrintHeight(initialHeight, 5);
+    int seconds {0};
+    while(!calculateAndPrintHeight(initialHeight, seconds)) {
+        ++seconds;
+    }
 
     return 0;
 }
