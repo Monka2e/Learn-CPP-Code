@@ -9,15 +9,53 @@ Hint: Write a separate function to handle the user inputting their guess (along 
 */
 
 #include "Random.h"
+#include <limits>
 #include <iostream>
+
+void ignoreLine() {
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
+
+bool validateInput(bool allowPartialExtraction=false) {
+    if (!std::cin) {
+        if (std::cin.eof()) {
+            exit(0);
+        }
+
+        std::cin.clear();
+        ignoreLine();
+        return false;
+    } else if (!std::cin.eof() && std::cin.peek() != '\n') {
+        ignoreLine();
+        return allowPartialExtraction;
+    }
+    return true;
+}
 
 bool queryReplay() {
     char input {};
-    while (input != 'y' && input != 'n') {
+    while (true) {
         std::cout << "Would you like to play again (y/n)? ";
         std::cin >> input;
+
+        if (validateInput() && (input == 'y' || input == 'n')) {
+            return input == 'y';
+        }
+        std::cout << "Oops! Invalid input, remember to enter 'y' or 'n'\n";
     }
-    return input == 'y';
+}
+
+int getGuess(int g) {
+    int guess {};
+    while (true) {
+        std::cout << "Guess #" << g << ": ";
+        std::cin >> guess;
+
+        if (validateInput() && (guess >= 1 && guess <= 100)) {
+            return guess;
+        }
+        std::cout << "Oops! Invalid input, remember to enter an integer between 1-100\n";
+    }
 }
 
 void play() {
@@ -26,9 +64,9 @@ void play() {
 
     std::cout << "Let's play a game. I'm thinking of a number between 1 and 100. You have 7 tries to guess what it is.\n";
 
-    for (int g {1}; g <= 7; ++g) {
-        std::cout << "Guess #" << g << ": ";
-        std::cin >> guess;
+    constexpr int guesses {7};
+    for (int g {1}; g <= guesses; ++g) {
+        guess = getGuess(g);
         
         if (guess > answer) {
             std::cout << "Your guess is too high.\n";
