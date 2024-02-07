@@ -37,18 +37,44 @@ and produce the following output:
 
 6
 3.6
+
+> Step #3
+
+Write a function template named sub() that allows the user to subtract two values of different types. The following program should run:
+
+#include <iostream>
+
+// write your sub function template here
+
+int main()
+{
+	std::cout << sub(3, 2) << '\n';
+	std::cout << sub(3.5, 2) << '\n';
+	std::cout << sub(4, 1.5) << '\n';
+
+	return 0;
+}
+and produce the following output:
+
+1
+1.5
+2.5
 */
 
 #include <iostream>
 
-template <typename T>
-T add(T x, T y) {
-    return x + y;
+auto sub(auto x, auto y) {
+    return x - y;
 }
 
 template <typename T>
 T mult(T x, int y) {
     return x * y;
+}
+
+template <typename T>
+T add(T x, T y) {
+    return x + y;
 }
 
 int main()
@@ -58,6 +84,10 @@ int main()
 
     std::cout << mult(2, 3) << '\n';
 	std::cout << mult(1.2, 3) << '\n';
+
+    std::cout << sub(3, 2) << '\n';
+	std::cout << sub(3.5, 2) << '\n';
+	std::cout << sub(4, 1.5) << '\n';
 
 	return 0;
 }
